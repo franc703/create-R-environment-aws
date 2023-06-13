@@ -1,3 +1,4 @@
+[![Docker Build and Test](https://github.com/franc703/create-R-environment-aws/actions/workflows/main.yml/badge.svg)](https://github.com/franc703/create-R-environment-aws/actions/workflows/main.yml)
 # R Docker Environment for AWS Cloud9 🚀
 
 Welcome! This project sets up a Docker container with an R environment and pre-installed packages (RCurl, devtools, tidyverse) in an AWS Cloud9 environment. All using a friendly Makefile for automation. You only need to clone this repo in your AWS Cloud9 and you're good to go! 😃
