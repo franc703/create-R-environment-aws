@@ -10,7 +10,7 @@ ADD . /app
 # Install required R packages
 RUN install2.r --error \
     --deps TRUE \
-    RCurl
+    RCurl tidyverse devtools
 
 # Run tests
 RUN Rscript run_tests.R
@@ -18,6 +18,3 @@ RUN Rscript run_tests.R
 # Make port 8787 available to the world outside this container. 
 # RStudio Server listens on port 8787.
 EXPOSE 8787
-
-# CMD command is not necessary because the rocker/rstudio image 
-# already contains a CMD command to start the RStudio Server.
