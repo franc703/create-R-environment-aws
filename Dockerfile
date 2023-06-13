@@ -12,6 +12,9 @@ RUN install2.r --error \
     --deps TRUE \
     RCurl
 
+# Run tests
+RUN Rscript run_tests.R
+
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
