@@ -1,5 +1,5 @@
 # Use an official R runtime as a parent image
-FROM rocker/tidyverse:latest
+FROM rocker/rstudio:latest
 
 # Set the working directory in the container to /app
 WORKDIR /app
@@ -15,8 +15,9 @@ RUN install2.r --error \
 # Run tests
 RUN Rscript run_tests.R
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Make port 8787 available to the world outside this container. 
+# RStudio Server listens on port 8787.
+EXPOSE 8787
 
-# Run R console when the container launches
-CMD ["R"]
+# CMD command is not necessary because the rocker/rstudio image 
+# already contains a CMD command to start the RStudio Server.
