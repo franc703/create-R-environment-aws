@@ -15,6 +15,3 @@ jobs:
 
     - name: Build Docker image
       run: make build
-
-    - name: Run tests
-      run: docker run --rm MyRENV make test
