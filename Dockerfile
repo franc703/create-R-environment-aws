@@ -1,5 +1,5 @@
 # Use an official R runtime as a parent image
-FROM r-base:latest
+FROM rocker/tidyverse:latest
 
 # Set the working directory in the container to /app
 WORKDIR /app
@@ -8,11 +8,12 @@ WORKDIR /app
 ADD . /app
 
 # Install required R packages
-RUN R -e "install.packages(c('RCurl', 'devtools'), repos = 'http://cran.rstudio.com/')"
-RUN R -e "devtools::install_version('tidyverse', version = '1.3.0', repos = 'http://cran.us.r-project.org')"
+RUN install2.r --error \
+    --deps TRUE \
+    RCurl
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
-# Run R script when the container launches
-CMD ["Rscript", "app.R"]
+# Run R console when the container launches
+CMD ["R"]
