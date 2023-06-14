@@ -7,7 +7,7 @@ build: check_docker
 	docker build -t myrstudio .
 
 run: build
-	docker run -p 8787:8787 -d myrstudio
+	docker run -p 8080:8080 -d myrstudio
 
 stop:
 	docker stop $$(docker ps -aqf "name=myrstudio")
@@ -22,5 +22,3 @@ all:
 	make build
 	make run
 	make deploy
-
-
