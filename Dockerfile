@@ -19,6 +19,8 @@ RUN install2.r --error \
 # Run tests
 RUN Rscript run_tests.R
 
-# Make port 8787 available to the world outside this container. 
-# RStudio Server listens on port 8787.
-EXPOSE 8787
+# Update RStudio Server configuration to use port 8080
+RUN echo 'www-port=8080' >> /etc/rstudio/rserver.conf
+
+# Make port 8080 available to the world outside this container.
+EXPOSE 8080
